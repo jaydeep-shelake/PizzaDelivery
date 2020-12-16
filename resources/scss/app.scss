@@ -1,5 +1,48 @@
-$primary:rgb(109, 180, 218);
+@import'./variables';
+
 body{
+    font-family: 'Poppins',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    color: $dark;
+}
+nav{
+    position: sticky;
+    top: 0;
+    background: $pure;
+}
+nav li:last-child{
+    color: $primary;
+}
+.fa-shopping-cart:hover{
+    color: $pure;
     background: $primary;
-    font-family: 'Poppins', sans-serif;
+    border-radius: 30px;
+    transition: $smooth;
+}
+.nav-links li a{
+    &:hover{
+        color: $primary;
+        transition: $smooth;
+    }
+}
+section.hero{
+    background: $secondary;
+}
+.size{
+    background: $secondary;
+
+}
+.btn-cart{
+    border: 2px solid $primary;
+    color: $primary;
+    &:hover{
+        background: $primary;
+        border: 2px solid $gray;
+        color: $pure;
+        transition: $smooth;
+    }
+}
+.grid-cols-4{
+    grid-gap: 40px;
+
 }

@@ -1,5 +1,53 @@
 body {
-  background: #6db4da;
   font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #232323;
+}
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
+
+nav li:last-child {
+  color: #Fe5f1e;
+}
+
+.fa-shopping-cart:hover {
+  color: #fff;
+  background: #Fe5f1e;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #Fe5f1e;
+  transition: all 0.3s ease;
+}
+
+section.hero {
+  background: #f8f8f8;
+}
+
+.size {
+  background: #f8f8f8;
+}
+
+.btn-cart {
+  border: 2px solid #Fe5f1e;
+  color: #Fe5f1e;
+}
+
+.btn-cart:hover {
+  background: #Fe5f1e;
+  border: 2px solid #ccc;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.grid-cols-4 {
+  grid-gap: 40px;
 }
 
