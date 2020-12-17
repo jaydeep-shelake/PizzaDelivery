@@ -51,3 +51,34 @@ section.hero {
   grid-gap: 40px;
 }
 
+.order-btn {
+  background: #Fe5f1e;
+}
+
+.order-btn:hover {
+  transform: scale(1.1);
+  background: #b23301;
+  transition: all 0.3s ease;
+}
+
+.cart {
+  background: #f8f8f8;
+}
+
+.cart .amount {
+  color: #Fe5f1e;
+}
+
+section.login {
+  background: #f8f8f8;
+  min-height: calc(100vh - 90px);
+}
+
+section.login a {
+  color: #Fe5f1e;
+}
+
+section.login a:hover {
+  color: #b23301;
+}
+
