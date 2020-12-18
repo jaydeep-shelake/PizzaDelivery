@@ -1,13 +1,21 @@
 const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
+const mongoose = require('mongoose');
 const expressLayout = require('express-ejs-layouts');
 const port = process.env.PORT || 3000;
 const app = express();
 const homeRoute = require('./Routes/home');
-const cartRote = require('./Routes/cartRoute');
+const cartRote = require('./Routes/customers/cartRoute');
 const loginRoute=require('./Routes/loginRoute');
 const registerRoute = require('./Routes/registerRoute');
+const addPizzaRoute = require('./Routes/customers/pizzaAddRoute');
+
+const uri = 'mongodb://localhost:27017/pizza';
+const connect = mongoose.connect(uri,{useUnifiedTopology:true,useNewUrlParser:true})
+.then(()=>console.log('connected'))
+.catch(err=>console.log(err));
+
 //files
 const views = path.join(__dirname, './views');
 const public = path.join(__dirname,'./public');
@@ -29,6 +37,7 @@ app.use('/',homeRoute);
 app.use('/cart',cartRote);
 app.use('/login',loginRoute);
 app.use('/register',registerRoute);
+app.use('/addPizza',addPizzaRoute);
 
 app.listen(port,(   	
 
