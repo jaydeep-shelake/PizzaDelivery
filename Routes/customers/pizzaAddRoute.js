@@ -11,7 +11,7 @@ addPizzaRoute.post('/', (req,res)=>{
     newPizza.save()
     .then(()=>{
         console.log(req.body);
-        res.json(req.body);
+        res.json(req.body)
     }).catch(err=> console.log(err));
     
 });

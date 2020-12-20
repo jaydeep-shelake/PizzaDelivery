@@ -5,4 +5,5 @@ cartRoute.get('/',(req,res)=>{
     res.render('customer/cart')
 });
 
+
 module.exports=cartRoute;

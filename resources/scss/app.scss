@@ -1,5 +1,6 @@
 @import'./variables';
-
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
 body{
     font-family: 'Poppins',sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -41,6 +42,9 @@ section.hero{
         color: $pure;
         transition: $smooth;
     }
+    &:focus{
+        outline: none;
+    }
 }
 .grid-cols-4{
     grid-gap: 40px;
@@ -69,4 +73,10 @@ section.login{
             color: $primary-hover;
         }
     }
+}
+
+#cart-counter{
+    position: absolute;
+    background: $primary;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.342);
 }

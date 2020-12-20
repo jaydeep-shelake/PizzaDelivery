@@ -1,42 +1,33 @@
 <section class="cart">
+    <% if(session.cart){%>
     <div class="order container mx-auto w-1/2">
         <div class="flex items-center border-b border-gray-400 py-4">
             <i class="fas fa-shopping-cart fa-2x"></i>
             <h1 class="text-2xl ml-4 font-bold ">Oder Summary</h1>
         </div>
         <div class="pizza-list ">
+           
+           <% for(let pizza of Object.values(session.cart.items)) { %>
             <div class="flex items-center justify-between py-8">
-               <img src="/img/piz1.jpg" alt="pizza-img" class="w-24">
+               <img src="/img/pizza.jpg" alt="pizza-img" class="w-24">
                <div>
-                   <h1 class="text-lg">Marinara</h1>
-                    <span class="text-gray-500 uppercase">medium</span>
+                   <h1 class="text-lg"><%= pizza.item.name %></h1>
+                    <span class="text-gray-500 uppercase"><%= pizza.item.size %></span>
                </div>
                <span>
-                   1pcs
+                <%= pizza.qty %> Pcs
                </span>
                <span class="font-bold text-lg">
-                   300rs
+                    <%= pizza.item.price * pizza.qty %>rs
                </span> 
             </div>
-            <hr>
-            <div class="flex items-center justify-between py-8">
-               <img src="/img/piz1.jpg" alt="pizza-img" class="w-24">
-               <div>
-                   <h1 class="text-lg">Marinara</h1>
-                    <span class="text-gray-500 uppercase">medium</span>
-               </div>
-               <span>
-                   1pcs
-               </span>
-               <span class="font-bold text-lg">
-                   300rs
-               </span> 
-            </div>
+           <% } %>
+        </div>
             <hr>
             <div class="total text-right py-4">
                 <div >
                 <span class="text-lg font-bold">Total Amount:</span>
-                <span class="amount text-2xl font-bold ml-2">300rs</span>
+                <span class="amount text-2xl font-bold ml-2"><%= session.cart.totalPrice %> rs</span>
             </div>
             <!--<div class="py-4">
                 <form action="">
@@ -48,12 +39,14 @@
             
         </div>
     </div>
-<!--<div class="empty-cart py-16">
+    <% } else { %>
+<div class="empty-cart py-16">
     <div class="container mx-auto text-center">
      <h1 class="text-3xl font-bold mb-2">Your Cart is empty 404 error 😆</h1>
      <p class="text-gray-500 text-lg mb-12">You have not added any pizza to cart! <a href="/" style="color:#Fe5f1e">Add one !</a></p>
      <img src="img/empty-cart.png" alt="emty-cart-image" class="w-2/5 mx-auto">
      <a href="/" class="inline-block px-3 py-3 rounded-full order-btn text-white my-4">back to home</a>
     </div>
-</div>-->
+</div>
+<% } %>
 </section>

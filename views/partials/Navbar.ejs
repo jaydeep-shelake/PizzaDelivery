@@ -9,7 +9,7 @@
            <li class="ml-6"><a href="/offers">Offers</a></li>
            <li class="ml-6"><a href="/register">Register</a></li>
            <li class="ml-6"><a href="/login">Login</a></li>
-           <li class="ml-6"><a href="/cart"><i class="fas fa-shopping-cart fa-2x p-2"><span id="cart-item"></span></i></a></li>
+           <li class="ml-6"><a href="/cart"><span id="cart-counter" class="text-white px-2 rounded-full"><%= session.cart ? session.cart.totalQty : '' %></span><i class="fas fa-shopping-cart fa-2x p-2"><span id="cart-item"></span></i></a></li>
         </ul>
     </div>
 </div>

@@ -27,8 +27,8 @@
             <h2 class="mb-4 text-lg"><%= pizza.name %></h2>
             <span class=" size py-1 px-4 rounded-full uppercase text-xs"><%= pizza.size %></span>
             <div class="flex items-center justify-around mt-4">
-                <span class="font-bold text-lg"><%= pizza.price %></span>
-                <button class="btn-cart rounded-full p-2 flex items-center font-bold"><span>+</span><span>add</span></button>
+                <span class="font-bold text-lg"><%= pizza.price %> rs</span>
+                <button data-pizza="<%= JSON.stringify(pizza) %>" class="btn-cart rounded-full p-2 flex items-center font-bold"><span>+</span><span>add</span></button>
             </div>
         </div>
     </div>
