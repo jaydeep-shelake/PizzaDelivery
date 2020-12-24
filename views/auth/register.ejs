@@ -2,18 +2,22 @@
   
     <form class="container mx-auto w-1/4 " action="/register" method="POST">
         <!-- component -->
+        
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+      <% if(messages.error){ %>
+      <span class="err-msg text-red-500 text-small p-1"><%= messages.error %></span>
+      <% } %>
         <div class="mb-4">
           <label class="block text-grey-darker text-sm font-bold mb-2" for="name">
             Name
           </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="name" type="text" placeholder="Full Name" name="name">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="name" type="text" placeholder="Full Name" name="name" value="<%= messages.name %>">
         </div>
         <div class="mb-4">
           <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
             Email
           </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="email" placeholder="Email" name="email">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="email" placeholder="Email" name="email" value="<%= messages.email %>">
         </div>
         <div class="mb-6">
           <label class="block text-grey-darker text-sm font-bold mb-2" for="password">

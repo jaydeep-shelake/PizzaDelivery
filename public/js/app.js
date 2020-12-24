@@ -5291,6 +5291,17 @@ function updateCart(pizza) {
   });
 }
 
+var addComment = document.getElementById('addComment');
+var modalArea = document.getElementById('modalArea');
+addComment.addEventListener('click', function () {
+  modalArea.classList.add('show');
+});
+window.addEventListener('click', function (e) {
+  if (e.target.classList.contains('modal-con')) {
+    modalArea.classList.remove('show');
+  }
+});
+
 /***/ }),
 
 /***/ "./resources/scss/app.scss":

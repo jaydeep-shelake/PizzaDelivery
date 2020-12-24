@@ -33,3 +33,15 @@ function updateCart(pizza){
     }).show();
   })
 }
+
+const addComment = document.getElementById('addComment');
+const modalArea = document.getElementById('modalArea');
+addComment.addEventListener('click',()=>{
+modalArea.classList.add('show');
+});
+
+window.addEventListener('click',(e)=>{
+  if(e.target.classList.contains('modal-con')){
+    modalArea.classList.remove('show')
+  }
+})
