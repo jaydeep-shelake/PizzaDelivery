@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const registerRoute = express.Router();
 const User = require('../models/User');
-const verfiyUser = require('../authenticate');
+const verfiyUser = require('../auth/authenticate');
 
 registerRoute.get('/',verfiyUser,(req,res)=>{
     res.render('auth/register');

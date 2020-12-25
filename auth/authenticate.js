@@ -4,5 +4,5 @@ function verfiyUser(req,res,next){
     }
     return res.redirect('/');  // if user is loggedin
     }
-    
+   
     module.exports=verfiyUser;

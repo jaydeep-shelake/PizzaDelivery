@@ -1,11 +1,12 @@
 const express = require('express');
 const addPizzaRoute = express.Router();
 const Menu = require('../../models/Menu');
-addPizzaRoute.get('/',(req,res)=>{
+const verifyAdmin = require('../../auth/ensureAdmin');
+addPizzaRoute.get('/',verifyAdmin,(req,res)=>{
     res.render('customer/addPizza.ejs');
 });
 
-addPizzaRoute.post('/', (req,res)=>{
+addPizzaRoute.post('/', verifyAdmin,(req,res)=>{
     
     const newPizza = new Menu(req.body);
     newPizza.save()

@@ -20,6 +20,8 @@ const loginRoute=require('./Routes/loginRoute');
 const registerRoute = require('./Routes/registerRoute');
 const addPizzaRoute = require('./Routes/customers/pizzaAddRoute');
 const updateCartRoute = require('./Routes/customers/updateCart');
+const orderRoute = require('./Routes/customers/orderRoute');
+const adminRoute =require('./Routes/admin/adminRoute');
 const logoutRoute = require('./Routes/logout');
 const uri = 'mongodb://localhost:27017/pizza';
 const connect = mongoose.connect(uri,{useUnifiedTopology:true,useNewUrlParser:true,useCreateIndex:true})
@@ -80,6 +82,8 @@ app.use('/register',registerRoute);
 app.use('/addPizza',addPizzaRoute);
 app.use('/update-cart',updateCartRoute);
 app.use('/logout',logoutRoute);
+app.use('/orders',orderRoute);
+app.use('/admin',adminRoute);
 app.use('/',homeRoute);
 app.listen(port,()=>{
 console.log(`your server is running on http://localhost:${port}`);
