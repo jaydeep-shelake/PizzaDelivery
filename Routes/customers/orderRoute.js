@@ -13,13 +13,21 @@ orderRoute.get('/',ensureUser,async(req,res)=>{
 
 orderRoute.post('/',ensureUser,(req,res)=>{
     //valid request
+    
     const newOrders = new Order({cosusterId:req.user._id,items:req.session.cart.items})
     newOrders.save()
     .then(result=>{
-     req.flash('success','Order succesfully placed');
+      Order.populate(result,{path:'cosusterId'},(err,placedOrder)=>{
+        req.flash('success','Order succesfully placed');
      //deleting all the items from the cart after its order
      delete req.session.cart;
+     //Emit 
+     const eventEmitter = req.app.get('eventEmitter');
+     eventEmitter.emit('orderPlaced',placedOrder);
+
      res.redirect('/orders');
+      })
+     
      
     })
     .catch(err=>{
@@ -29,6 +37,16 @@ orderRoute.post('/',ensureUser,(req,res)=>{
     })
 });
 
+orderRoute.get('/:id',async(req,res)=>{
+  const order= await Order.findById(req.params.id);
+  //Authorize user status only visible for logged in user of its own order
+  if(req.user._id.toString() === order.cosusterId.toString()){
+   return res.render('customer/singleOrdere',{order:order});
+  }
+  
+   return res.redirect('/');
+  
 
+});
 
 module.exports=orderRoute;

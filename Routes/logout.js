@@ -1,7 +1,7 @@
 const express = require('express');
 const logoutRoute = express.Router();
 
-logoutRoute.get('/',(req,res)=>{
+logoutRoute.post('/',(req,res)=>{
   req.logout();
   res.redirect('/');
 });

@@ -12,6 +12,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 const MongoDBstore = require('connect-mongo')(session);
 const passport = require('passport');
+const emmiter = require('events');
 const port = process.env.PORT || 3000;
 const app = express();
 const homeRoute = require('./Routes/home');
@@ -45,8 +46,9 @@ app.use(expressLayout);
 app.use(express.static(public));
 
 
-
-
+//event emmiter
+const eventEmitter=new emmiter();
+app.set('eventEmitter',eventEmitter);
 //session store
 app.use(session({
     secret:process.env.SECRET,
@@ -85,7 +87,25 @@ app.use('/logout',logoutRoute);
 app.use('/orders',orderRoute);
 app.use('/admin',adminRoute);
 app.use('/',homeRoute);
-app.listen(port,()=>{
+
+
+const server = app.listen(port,()=>{
 console.log(`your server is running on http://localhost:${port}`);
 });
 
+//socket
+const io = require('socket.io')(server);
+io.on('connection',(socket)=>{
+  //join user
+  socket.on('join',(roomName)=>{
+     socket.join(roomName);
+  });
+});
+
+eventEmitter.on('orderUpdated',(data)=>{
+io.to(`order_${data.id}`).emit('orderUpdated',data);
+});
+
+eventEmitter.on('orderPlaced',(data)=>{
+io.to('adminRoom').emit('orderPlaced',data);
+});

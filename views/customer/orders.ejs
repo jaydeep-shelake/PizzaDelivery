@@ -21,7 +21,7 @@
          <% orders.slice().reverse().forEach(order=>{ %>
          <tbody>
              <tr>
-                 <td class="border px-4 py-2"><a href="" class="link"><%= order._id %></a></td>
+                 <td class="border px-4 py-2"><a href="orders/<%= order._id %>" class="link"><%= order._id %></a></td>
                  <td class="border px-4 py-2">Shiv sai appt</td>
                  <td class="border px-4 py-2"><%= moment(order.createdAt).format('MMMM Do YYYY,h:mm:ss A') %></td>
 

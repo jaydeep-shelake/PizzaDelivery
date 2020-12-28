@@ -8,8 +8,13 @@
            <li class="ml-6"><a href="/">Menu</a></li>
            <li class="ml-6"><a href="/offers">Offers</a></li>
            <% if(user) { %>
-
-           <li class="ml-6"><a href="/logout">Logout</a></li>
+          
+           <li class="ml-6">
+            <form action="/logout" method="POST" id="logout">
+               <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
+            </form>  
+            </li>
+          
             
            <% } else { %>
            <li class="ml-6"><a href="/register">Register</a></li>

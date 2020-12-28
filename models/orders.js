@@ -17,7 +17,7 @@ let Order = new Schema({
  },
  status:{
      type:String,
-     status:'Order_placed'
+     default:'Order_placed'
  }
 },{timestamps:true});
 

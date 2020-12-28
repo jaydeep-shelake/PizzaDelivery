@@ -119,3 +119,112 @@ section.login{
 .link{
     color: $primary;
 }
+.status{
+    background: $secondary;
+    min-height: calc(100vh - 87px);
+}
+.status-box{
+    padding: 60px 0 0;
+}
+//dots
+.status-box ul{
+    margin-left:84px;
+}
+.status-box ul li span{
+    position: relative;
+    padding-left: 20px;
+}
+.status-box ul li span::after{
+content: '';
+position: absolute;
+left: -10px;
+top: 50%;
+background: $dark;
+width: 10px;
+height: 10px;
+border-radius: 10px;
+transform: translateY(-50%);
+box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.342);
+}
+.status-box ul li span::before{
+    
+    font-family: 'Line Awesome Free';
+    font-size: 46px;
+    font-weight: 600;
+    position: absolute;
+    left: -90px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: inherit;
+    
+}
+.status-box ul li:nth-child(1) span::before{
+    content: '\f46c';
+}
+.status-box ul li:nth-child(2) span::before{
+    content: '\f560';
+}
+.status-box ul li:nth-child(3) span::before{
+    content: '\f818';
+}
+.status-box ul li:nth-child(4) span::before{
+    content: '\f0d1';
+}
+.status-box ul li:nth-child(5) span::before{
+    content: '\f582';
+}
+//line
+.status-box ul li{
+    position: relative;
+}
+.status-box ul li::before{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: -6px;
+    width: 2px;
+    height: 80%;
+    background: $dark;
+    margin: 20px 0;
+}
+//last dot
+.status-box ul li:nth-child(5)span::after{
+    box-shadow: 0 20px 1px 20px $secondary;
+}
+.status-box ul li.step-completed::before{
+background: $gray;
+}
+.status-box ul li.step-completed span::after{
+    background: $gray;
+}
+.status-box ul li.step-completed span{
+    color: $gray;
+}
+.status-box ul li.current-status::before{
+    background: $primary;
+}
+.status-box ul li.current-status span::after{
+    background: $primary;
+    animation: bump 0.3s linear infinite;
+}
+.status-box ul li.current-status span{
+    color: $primary;
+}
+.status-box ul li small{
+    float: right;
+    font-size: 17px;
+    color: rgb(100, 98, 98);
+    margin-top: -3px;
+}
+@keyframes bump{
+    from{
+     background: $gray;
+     width: 15px;
+     height: 15px;
+    }
+    to{
+     background: $primary;
+     width: 10px;
+     height: 10px;
+    }
+}
