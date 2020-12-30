@@ -228,3 +228,30 @@ background: $gray;
      height: 10px;
     }
 }
+
+@media(max-width:1060px){
+.container{
+    max-width: 90%;
+}
+.grid-cols-4{
+    grid-template-columns: repeat(3,1fr);
+}
+table{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+}
+@media(max-width:760px){
+    .grid-cols-4{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media(max-width:460px){
+    .grid-cols-4{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .status-box ul li span::before{
+        font-size: 34px;
+    }
+}

@@ -34,14 +34,19 @@ function updateCart(pizza){
     }).show();
   })
 }
+let adminAreaPath = window.location.pathname;
+if(adminAreaPath.includes('admin')){
+  initAdmin();
+}
 
-initAdmin();
+if(adminAreaPath.includes('menu')){
+const addComment = document.getElementById('addComment');
+const modalArea = document.getElementById('modalArea');
+addComment.addEventListener('click',()=>{
+modalArea.classList.add('show');
+});
+}
 
-// const addComment = document.getElementById('addComment');
-// const modalArea = document.getElementById('modalArea');
-// addComment.addEventListener('click',()=>{
-// modalArea.classList.add('show');
-// });
 
 window.addEventListener('click',(e)=>{
   if(e.target.classList.contains('modal-con')){
@@ -94,7 +99,7 @@ const socket = io();
 if(order){
   socket.emit('join',`order_${order._id}`);
 }
-let adminAreaPath = window.location.pathname;
+
 if(adminAreaPath.includes('admin')){
 socket.emit('join','adminRoom');
 }

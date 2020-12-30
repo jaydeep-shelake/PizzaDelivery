@@ -26971,11 +26971,21 @@ function updateCart(pizza) {
   });
 }
 
-Object(_admin__WEBPACK_IMPORTED_MODULE_2__["default"])(); // const addComment = document.getElementById('addComment');
-// const modalArea = document.getElementById('modalArea');
-// addComment.addEventListener('click',()=>{
-// modalArea.classList.add('show');
-// });
+var adminAreaPath = window.location.pathname;
+
+if (adminAreaPath.includes('admin')) {
+  Object(_admin__WEBPACK_IMPORTED_MODULE_2__["default"])();
+}
+
+if (adminAreaPath.includes('menu')) {
+  var addComment = document.getElementById('addComment');
+
+  var _modalArea = document.getElementById('modalArea');
+
+  addComment.addEventListener('click', function () {
+    _modalArea.classList.add('show');
+  });
+}
 
 window.addEventListener('click', function (e) {
   if (e.target.classList.contains('modal-con')) {
@@ -27029,8 +27039,6 @@ var socket = io();
 if (order) {
   socket.emit('join', "order_".concat(order._id));
 }
-
-var adminAreaPath = window.location.pathname;
 
 if (adminAreaPath.includes('admin')) {
   socket.emit('join', 'adminRoom');

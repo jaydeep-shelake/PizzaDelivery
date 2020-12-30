@@ -27,7 +27,7 @@ export default function initAdmin() {
             `
         }).join('')
       }
-
+      
     function generateMarkup(orders) {
         return orders.map(order => {
             return `
